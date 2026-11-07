@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Portofolio Magang – Ernanda Dwi</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --blue:#2060e8; --blue-deep:#1646b8; --orange:#f2962b; --folder:#f3b44c;
+  --lime:#9cd424; --pink:#f48bcf; --sky:#8fcaf2; --red:#e8433f; --paper:#fffdf8; --ink:#1a2250;
+  --panel:#fffdf8; --panel-ink:#1a2250; --stroke:#fff; color-scheme:light;
+  box-sizing:border-box; padding-top:env(safe-area-inset-top,0px); padding-bottom:env(safe-area-inset-bottom,0px);
+}
+*,*::before,*::after{box-sizing:inherit}
+html{scroll-behavior:smooth;scroll-padding-top:calc(env(safe-area-inset-top,0px) + 72px)}
+body{
+  margin:0;font-family:"Fredoka",system-ui,sans-serif;font-size:1.05rem;line-height:1.6;color:var(--panel-ink);
+  background:
+    linear-gradient(115deg,transparent 30%,rgba(255,255,255,.12) 31%,transparent 33%),
+    linear-gradient(62deg,transparent 55%,rgba(255,255,255,.1) 56%,transparent 58.5%),
+    linear-gradient(170deg,transparent 12%,rgba(255,255,255,.09) 13%,transparent 15%),
+    var(--blue);
+  background-color:var(--blue);overflow-x:hidden;
+}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);background:var(--blue-deep);z-index:30}
+a{color:inherit}
+:focus-visible{outline:4px solid var(--lime);outline-offset:3px}
+.wrap{max-width:1040px;margin:0 auto;padding:0 20px}
+
+/* nav */
+nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;padding:12px 0;background:var(--blue-deep)}
+nav .wrap{
+  max-width:none;
+  display:flex;
+  justify-content:flex-end;
+  flex-wrap:wrap;
+  gap:8px;
+}
+nav a{background:#fff;color:#1a2250;text-decoration:none;font-weight:600;padding:4px 16px;border-radius:99px;transition:transform .15s}
+nav a:hover{transform:rotate(-3deg) scale(1.06);background:var(--lime)}
+
+/* sticker text */
+.st{color:var(--lime);font-weight:700;line-height:.9;letter-spacing:.01em;
+  -webkit-text-stroke:.16em var(--stroke);paint-order:stroke fill;text-shadow:0 .05em 0 rgba(0,0,0,.18)}
+
+/* hero */
+.hero{padding:44px 0 70px;position:relative}
+.cover{position:relative;max-width:760px;margin:0 auto;aspect-ratio:1.28;container-type:inline-size}
+.f-back{position:absolute;inset:6% 4% 10% 2%;background:var(--orange);border-radius:26px;transform:rotate(-1.5deg)}
+.f-paper{position:absolute;inset:11% 6% 14% 5%;background:#fff;border-radius:14px;transform:rotate(1deg);box-shadow:0 3px 0 rgba(0,0,0,.08)}
+.f-front{position:absolute;inset:20% 1% 6% 4%;background:var(--folder);border-radius:24px;box-shadow:0 8px 0 rgba(0,0,0,.14)}
+.cover .st.a{position:absolute;left:5%;top:12%;font-size:29cqw}
+.cover .st.b{position:absolute;left:32%;top:47%;font-size:29cqw}
+.star{position:absolute;filter:drop-shadow(0 4px 0 rgba(0,0,0,.14))}
+.star path{stroke:#fff;stroke-width:9;stroke-linejoin:round}
+.s1{right:1%;top:1%;width:19%;transform:rotate(14deg)} .s1 path{fill:var(--pink)}
+.s2{left:-1%;bottom:2%;width:23%;transform:rotate(-12deg)} .s2 path{fill:var(--sky)}
+.burst{position:absolute;right:0;top:38%;width:13%;transform:rotate(10deg)}
+.clip{position:absolute;left:-1%;top:-3%;width:11%;transform:rotate(-20deg)}
+
+/* pop-in */
+@media (prefers-reduced-motion:no-preference){
+  .pop{animation:pop .6s cubic-bezier(.3,1.6,.5,1) both;animation-delay:calc(var(--i,0)*.12s)}
+  @keyframes pop{from{opacity:0;transform:scale(.4) rotate(-14deg)}}
+}
+
+/* panels */
+section{padding:34px 0;position:relative}
+.deco{position:absolute;z-index:2;pointer-events:none;filter:drop-shadow(0 4px 0 rgba(0,0,0,.16))}
+.deco path,.deco circle{fill:var(--c);stroke:#fff;stroke-width:8;stroke-linejoin:round}
+.deco.squig path{fill:none;stroke:var(--c);stroke-width:7;stroke-linecap:round}
+.proj::after{content:"";position:absolute;top:-12px;right:24px;width:74px;height:24px;border-radius:3px;background:rgba(244,139,207,.88);transform:rotate(5deg)}
+.proj:nth-child(2)::after{background:rgba(143,202,242,.9);transform:rotate(-4deg)}
+.proj:nth-child(3)::after{background:rgba(156,212,36,.9)}
+@media (max-width:640px){.hm{display:none}}
+.panel{background:var(--panel);border:6px solid #fff;border-radius:26px;padding:28px;box-shadow:0 8px 0 rgba(0,0,0,.18)}
+h2{margin:0 0 18px;font-size:clamp(2.2rem,6vw,3.4rem);display:inline-block;transform:rotate(-2deg)}
+h3{margin:0;font-size:1.35rem;line-height:1.2}
+.about{display:grid;grid-template-columns:200px 1fr;gap:28px;align-items:center}
+.avatar{
+  aspect-ratio:1;
+  width:100%;
+  max-width:200px;
+  border-radius:50%;
+  border:6px solid var(--pink);
+  background:var(--sky);
+  padding:0;
+  overflow:hidden;
+  display:block;
+}
+.avatar img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  object-position:center 35%;
+  display:block;
+}
+.about p{margin:0 0 12px;max-width:62ch}
+.facts{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+.facts span{background:var(--folder);color:#1a2250;border-radius:99px;padding:2px 14px;font-weight:500}
+
+.chips{display:flex;flex-wrap:wrap;gap:12px}
+.chip{padding:6px 20px;border-radius:99px;font-weight:600;color:#1a2250;border:4px solid #fff;box-shadow:0 4px 0 rgba(0,0,0,.15)}
+.chip:nth-child(4n+1){background:var(--lime);transform:rotate(-3deg)}
+.chip:nth-child(4n+2){background:var(--pink);transform:rotate(2deg)}
+.chip:nth-child(4n+3){background:var(--sky);transform:rotate(-1deg)}
+.chip:nth-child(4n){background:var(--folder);transform:rotate(3deg)}
+.skills-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:24px}
+.skills-grid h3{margin-bottom:12px}
+
+/* Daftar proyek: 3 kartu per baris, baris terakhir otomatis di tengah */
+.projects{
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
+  gap:30px;
+}
+.proj{
+  flex:0 0 calc((100% - 60px) / 3); /* 3 kartu per baris (60px = 2 x gap) */
+  position:relative;margin-top:22px;background:var(--folder);border-radius:0 22px 22px 22px;padding:18px;color:#1a2250;box-shadow:0 8px 0 rgba(0,0,0,.18)
+}
+.proj::before{content:attr(data-tag);position:absolute;left:0;top:-30px;background:var(--folder);padding:3px 20px 0;border-radius:16px 16px 0 0;font-weight:600;height:30px}
+
+/* Tablet: 2 kartu per baris (baris terakhir tetap di tengah) */
+@media (max-width:900px){
+  .proj{flex-basis:calc((100% - 30px) / 2)}
+}
+/* HP: 1 kartu per baris */
+@media (max-width:600px){
+  .proj{flex-basis:100%}
+}
+
+/* kotak gambar proyek (bingkai putih + sudut membulat) */
+.thumb{
+  aspect-ratio:3 / 2;
+  overflow:hidden;
+  border:5px solid #fff;
+  border-radius:16px;
+  margin-bottom:14px;
+  display:grid;
+  place-items:center;
+  text-align:center;
+  font-weight:600;
+}
+.thumb img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  object-position:center;
+  display:block;
+}
+.proj:nth-child(1) .thumb{background:var(--pink)}
+.proj:nth-child(2) .thumb{background:var(--sky)}
+.proj:nth-child(3) .thumb{background:var(--lime)}
+
+/* Khusus kartu WebRTC: screenshot tampil utuh, kartu lain tidak terpengaruh */
+.proj .thumb.thumb-webrtc{background:#fff}
+.thumb-webrtc img{object-fit:contain}
+
+/* Khusus kartu VR: gambar tampil utuh */
+.proj .thumb.thumb-vr{background:#8fe3f0}
+.thumb-vr img{object-fit:contain}
+
+.proj p{margin:6px 0 10px}
+.tools{font-weight:500;font-size:.95rem;opacity:.85}
+.proj a{display:inline-block;margin-top:10px;background:#1a2250;color:#fff;text-decoration:none;font-weight:600;padding:4px 18px;border-radius:99px}
+.proj a:hover{background:var(--red)}
+
+.contact{text-align:center}
+.contact p{max-width:48ch;margin:0 auto 20px}
+.links{display:flex;flex-wrap:wrap;gap:14px;justify-content:center}
+.links a{background:var(--red);color:#fff;text-decoration:none;font-weight:600;padding:6px 30px;
+  clip-path:polygon(0 0,100% 0,97% 50%,100% 100%,0 100%,3% 50%);transition:transform .15s}
+.links a:hover{transform:rotate(-2deg) scale(1.05);background:var(--lime);color:#1a2250}
+footer{text-align:center;color:#fff;padding:30px 20px 50px;font-weight:500}
+
+@media (max-width:640px){
+  .about{grid-template-columns:1fr} .avatar{max-width:160px}
+}
+</style>
+</head>
+<body>
+
+<nav aria-label="Navigasi utama">
+  <div class="wrap">
+    <a href="#tentang">Tentang</a>
+    <a href="#skill">Skill</a>
+    <a href="#karya">Karya</a>
+    <a href="#kontak">Kontak</a>
+  </div>
+</nav>
+
+<header class="hero" id="atas">
+  <svg class="deco squig hm" style="left:3%;top:26px;width:120px;--c:#fff" viewBox="0 0 120 30" aria-hidden="true"><path d="M5 15q10-20 20 0t20 0 20 0 20 0 20 0"/></svg>
+  <svg class="deco hm" style="left:4%;top:52%;width:54px;--c:var(--lime)" viewBox="0 0 100 100" aria-hidden="true"><path d="M50 4 61 39 96 50 61 61 50 96 39 61 4 50 39 39Z"/></svg>
+  <svg class="deco hm" style="right:5%;bottom:60px;width:66px;--c:var(--pink);transform:rotate(12deg)" viewBox="0 0 100 100" aria-hidden="true"><path d="M50 88C14 60 6 40 14 26c8-14 28-12 36 4 8-16 28-18 36-4 8 14 0 34-36 62Z"/></svg>
+  <div class="wrap">
+    <div class="cover" role="img" aria-label="Sampul portofolio: desain grafis dan ilustrasi">
+      <div class="f-back"></div><div class="f-paper"></div><div class="f-front"></div>
+      <svg class="clip pop" style="--i:6" viewBox="0 0 40 90" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round" aria-hidden="true"><path d="M12 62V20a8 8 0 0 1 16 0v48a12 12 0 0 1-24 0V28"/></svg>
+      <span class="st a pop" style="--i:0" aria-hidden="true">Porto</span>
+      <span class="st b pop" style="--i:1" aria-hidden="true">folio</span>
+      <svg class="star s1 pop" style="--i:4" viewBox="0 0 100 100" aria-hidden="true"><path d="M50 5 61 38 96 38 68 59 79 92 50 72 21 92 32 59 4 38 39 38Z"/></svg>
+      <svg class="star s2 pop" style="--i:5" viewBox="0 0 100 100" aria-hidden="true"><path d="M50 5 61 38 96 38 68 59 79 92 50 72 21 92 32 59 4 38 39 38Z"/></svg>
+      <svg class="burst pop" style="--i:7" viewBox="0 0 100 100" aria-hidden="true"><g fill="#fbe39b" stroke="#fff" stroke-width="7" stroke-linejoin="round"><circle cx="50" cy="50" r="30"/><circle cx="50" cy="16" r="13"/><circle cx="82" cy="40" r="13"/><circle cx="70" cy="80" r="13"/><circle cx="30" cy="80" r="13"/><circle cx="18" cy="40" r="13"/></g></svg>
+    </div>
+  </div>
+</header>
+
+<main>
+<section id="tentang"><div class="wrap">
+  <svg class="deco hm" style="right:1%;top:6px;width:78px;--c:var(--lime);transform:rotate(12deg)" viewBox="0 0 100 100" aria-hidden="true"><path d="M50 5 61 38 96 38 68 59 79 92 50 72 21 92 32 59 4 38 39 38Z"/></svg>
+  <svg class="deco hm" style="left:1%;bottom:16px;width:46px;--c:var(--sky)" viewBox="0 0 100 100" aria-hidden="true"><path d="M50 4 61 39 96 50 61 61 50 96 39 61 4 50 39 39Z"/></svg>
+  <h2 class="st">Tentang</h2>
+  <div class="panel about">
+    <div class="avatar"><img src="foto.jpeg" alt="Foto profil Ernanda Dwi"></div>
+    <div>
+      <p>Halo, saya Ernanda Dwi, mahasiswi Politeknik Elektronika Negeri Surabaya prodi Teknologi Rekayasa Multimedia (TRM) yang tertarik mendalami pengembangan back end.</p>
+      <p>Saya tertarik memahami bagaimana sebuah aplikasi berjalan di balik tampilannya. Bagi saya, back end adalah bagian yang paling menarik karena di sanalah data diolah, disimpan, dan dikirim ke pengguna. Karena itu saya mulai belajar memahami alur data, merancang database, dan membuat API agar aplikasi berjalan dengan lancar. Saya percaya sistem yang tertata dengan baik membuat sebuah aplikasi lebih aman, stabil, dan mudah dikembangkan.</p>
+    </div>
+  </div>
+</div></section>
+
+<section id="skill"><div class="wrap">
+  <svg class="deco hm" style="left:1%;top:4px;width:76px;--c:#fbe39b" viewBox="0 0 100 100" aria-hidden="true"><circle cx="50" cy="50" r="28"/><circle cx="50" cy="17" r="13"/><circle cx="82" cy="40" r="13"/><circle cx="70" cy="80" r="13"/><circle cx="30" cy="80" r="13"/><circle cx="18" cy="40" r="13"/></svg>
+  <svg class="deco squig hm" style="right:22%;top:14px;width:130px;--c:var(--lime)" viewBox="0 0 120 30" aria-hidden="true"><path d="M5 15q10-20 20 0t20 0 20 0 20 0 20 0"/></svg>
+  <svg class="deco hm" style="right:2%;bottom:12px;width:62px;--c:var(--red);transform:rotate(-10deg)" viewBox="0 0 100 100" aria-hidden="true"><path d="M50 88C14 60 6 40 14 26c8-14 28-12 36 4 8-16 28-18 36-4 8 14 0 34-36 62Z"/></svg>
+  <section id="skill"><div class="wrap">
+  <svg class="deco hm" style="left:1%;top:4px;width:76px;--c:#fbe39b" viewBox="0 0 100 100" aria-hidden="true"><circle cx="50" cy="50" r="28"/><circle cx="50" cy="17" r="13"/><circle cx="82" cy="40" r="13"/><circle cx="70" cy="80" r="13"/><circle cx="30" cy="80" r="13"/><circle cx="18" cy="40" r="13"/></svg>
+  <svg class="deco squig hm" style="right:22%;top:14px;width:130px;--c:var(--lime)" viewBox="0 0 120 30" aria-hidden="true"><path d="M5 15q10-20 20 0t20 0 20 0 20 0 20 0"/></svg>
+  <svg class="deco hm" style="right:2%;bottom:12px;width:62px;--c:var(--red);transform:rotate(-10deg)" viewBox="0 0 100 100" aria-hidden="true"><path d="M50 88C14 60 6 40 14 26c8-14 28-12 36 4 8-16 28-18 36-4 8 14 0 34-36 62Z"/></svg>
+  <h2 class="st">Skill</h2>
+  <div class="panel">
+    <div class="chips">
+      <span class="chip">HTML</span>
+      <span class="chip">CSS</span>
+      <span class="chip">JavaScript</span>
+      <span class="chip">Python</span>
+      <span class="chip">Node.js</span>
+      <span class="chip">MySQL</span>
+      <span class="chip">Php</span>
+      <span class="chip">Git &amp; GitHub</span>
+      <span class="chip">VS Code</span>
+      <span class="chip">Figma (dasar)</span>
+      <span class="chip">Canva</span>
+      <span class="chip">CapCut</span>
+    </div>
+</div></section>
+
+<section id="karya"><div class="wrap">
+  <svg class="deco hm" style="right:2%;top:0;width:72px;--c:var(--pink);transform:rotate(-14deg)" viewBox="0 0 100 100" aria-hidden="true"><path d="M50 5 61 38 96 38 68 59 79 92 50 72 21 92 32 59 4 38 39 38Z"/></svg>
+  <svg class="deco squig hm" style="left:23%;top:18px;width:125px;--c:var(--sky)" viewBox="0 0 120 30" aria-hidden="true"><path d="M5 15q10-20 20 0t20 0 20 0 20 0 20 0"/></svg>
+  <h2 class="st">Karya</h2>
+  <div class="projects">
+
+    <article class="proj" data-tag="VR Development">
+      <div class="thumb thumb-vr">
+        <img src="VR.png" alt="Simulator VR Edukasi Kesehatan Gigi">
+      </div>
+      <h3>Simulator VR Edukasi Kesehatan Gigi</h3>
+      <p>Membangun logika pemrograman simulator VR edukasi kesehatan gigi: interaksi mengambil alat dan mengarahkannya ke karies, penghitung karies tersisa, serta panduan langkah yang ikut berubah sesuai progres misi.</p>
+    </article>
+
+    <article class="proj" data-tag="Web App">
+      <div class="thumb thumb-webrtc">
+        <img src="Jarmul.png" alt="Tampilan aplikasi WebRTC Auto-Subtitle">
+      </div>
+      <h3>WebRTC Auto-Subtitle</h3>
+      <p>Aplikasi web yang mengubah suara menjadi subtitle bahasa Indonesia secara real-time, lengkap dengan koreksi kata otomatis, riwayat subtitle, indikator akurasi, dan ekspor .srt.</p>
+    </article>
+
+    <article class="proj" data-tag="Web App">
+      <div class="thumb">
+        <img src="website.png" alt="Tampilan aplikasi DigiLib Perpustakaan Digital">
+      </div>
+      <h3>DigiLib Perpustakaan Digital</h3>
+      <p>Aplikasi web perpustakaan digital untuk mencari buku berdasarkan judul, penulis, atau kategori, dilengkapi informasi stok dan rating, peminjaman online, riwayat pinjam, serta ulasan buku.</p>
+    </article>
+
+    <article class="proj" data-tag="UI/UX">
+      <div class="thumb">
+        <img src="ui ux.png" alt="Desain UI/UX Speedstep Komunitas Lari Surabaya">
+      </div>
+      <h3>Speedstep Komunitas Lari Surabaya</h3>
+      <p>Merancang UI/UX website komunitas lari Surabaya: homepage, form pendaftaran, halaman registrasi dan perlengkapan, serta detail rekomendasi sepatu lari.</p>
+    </article>
+
+    <article class="proj" data-tag="Web Design">
+      <div class="thumb">
+        <img src="Website (2).png" alt="Tampilan website profil Universitas Negeri Surabaya">
+      </div>
+      <h3>Website Profil Universitas Negeri Surabaya</h3>
+      <p>Tugas kuliah membuat website profil kampus dengan halaman Beranda, Tentang, Program Studi, Galeri, dan Kontak. Menampilkan sejarah, moto, data fakultas dan program studi, serta foto kampus dengan tata letak yang rapi dan responsif.</p>
+    </article>
+  </div>
+</div></section>
+
+<section id="kontak"><div class="wrap">
+  <svg class="deco hm" style="left:2%;top:10px;width:70px;--c:var(--sky);transform:rotate(-12deg)" viewBox="0 0 100 100" aria-hidden="true"><path d="M50 5 61 38 96 38 68 59 79 92 50 72 21 92 32 59 4 38 39 38Z"/></svg>
+  <svg class="deco hm" style="right:2%;bottom:4px;width:62px;--c:var(--pink);transform:rotate(14deg)" viewBox="0 0 100 100" aria-hidden="true"><path d="M50 5 61 38 96 38 68 59 79 92 50 72 21 92 32 59 4 38 39 38Z"/></svg>
+  <svg class="deco hm" style="right:10%;top:0;width:50px;--c:var(--lime)" viewBox="0 0 100 100" aria-hidden="true"><path d="M50 4 61 39 96 50 61 61 50 96 39 61 4 50 39 39Z"/></svg>
+  <div class="panel contact">
+    <h2 class="st">Kontak</h2>
+    <div class="links">
+      <a href="https://mail.google.com/mail/?view=cm&fs=1&to=ernandadwi12@gmail.com&su" target="_blank" rel="noopener">Kirim email</a>
+      <a href="https://wa.me/6288217509342" target="_blank" rel="noopener">WhatsApp</a>
+      <a href="https://www.instagram.com/ernndaindh_?cplk=MXdhc3pjbG55aXYxdA==">Instagram</a>
+      <a href="https://github.com/ernandadwi12?tab=repositories">Github</a>
+    </div>
+  </div>
+</div></section>
+</main>
+
+</body>
+</html>
